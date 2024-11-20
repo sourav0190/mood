@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detection</title>
+</head>
+<body>
+    <h1>Emotion Detection</h1>
+    
+    <!-- Display webcam feed -->
+    <img src="{{ url_for('video_feed') }}" alt="Video Feed">
+    
+    <!-- Display Emotion and Suggestion -->
+    <div id="suggestion-box">
+        <h2>Suggested Action</h2>
+        <p id="suggestion-text">Wait for emotion detection...</p>
+    </div>
+    <div id="suggestion-text" style="font-size: 20px; color: green;">
+        <!-- Emotion suggestion will appear here -->
+    </div>
+    
+    
+    
+    <script src="{{ url_for('static', filename='js/webcam.js') }}"></script>
+</body>
+</html>

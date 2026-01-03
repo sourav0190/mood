@@ -1,5 +1,0 @@
-flask
-opencv-python-headless
-fer
-tensorflow
-gunicorn

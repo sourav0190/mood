@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood AI - Live Emotion Detection</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Mood AI 🧠</h1>
+            <p>Real-time Emotion Detection using AI (Browser-based)</p>
+        </header>
+
+        <div class="dashboard">
+            <!-- Glass Panel for Camera -->
+            <div class="glass-panel">
+                <div class="video-wrapper">
+                    <video id="video" width="720" height="560" autoplay muted></video>
+                    <canvas id="canvas"></canvas>
+                </div>
+                <div class="controls">
+                    <button id="startBtn" class="btn-primary">Initialize AI & Start Camera</button>
+                </div>
+            </div>
+
+            <!-- Glass Panel for Results -->
+            <div class="glass-panel results-card">
+                <div class="emotion-display">
+                    <div id="emotionIcon" class="emotion-icon">🤖</div>
+                    <h2 id="emotionLabel">Waiting...</h2>
+                </div>
+
+                <div class="suggestion-box">
+                    <h4>Mood Suggestion</h4>
+                    <p id="suggestionText">Click the button to start analyzing your mood.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Powered by face-api.js • purely client-side</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -3,25 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emotion Detection</title>
+    <title>Mood AI</title>
+    <!-- Google Fonts for Premium Look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='mood.css') }}">
 </head>
 <body>
-    <h1>Emotion Detection</h1>
-    
-    <!-- Display webcam feed -->
-    <img src="{{ url_for('video_feed') }}" alt="Video Feed">
-    
-    <!-- Display Emotion and Suggestion -->
-    <div id="suggestion-box">
-        <h2>Suggested Action</h2>
-        <p id="suggestion-text">Wait for emotion detection...</p>
+    <div class="background-animation"></div>
+    <div class="container">
+        <header>
+            <h1>Mood AI</h1>
+            <p>Real-time Emotion Analysis & Wellness</p>
+        </header>
+
+        <main class="dashboard">
+            <!-- Camera Feed Section -->
+            <section class="camera-card glass-panel">
+                <div class="video-wrapper">
+                    <video id="videoElement" autoplay playsinline muted></video>
+                    <canvas id="canvasElement" style="display:none;"></canvas>
+                    <div class="overlay" id="loadingOverlay">
+                        <div class="spinner"></div>
+                        <p>Accessing Camera...</p>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button id="startBtn" class="btn-primary">Start Analysis</button>
+                    <!-- <button id="stopBtn" class="btn-secondary" disabled>Stop</button> -->
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-card glass-panel">
+                <div class="emotion-display">
+                    <h2>Current Mood</h2>
+                    <div class="emotion-icon" id="emotionIcon">😐</div>
+                    <h3 id="emotionLabel">Neutral</h3>
+                </div>
+                
+                <div class="suggestion-box">
+                    <h4>Wellness Suggestion</h4>
+                    <p id="suggestionText">Initializing AI...</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Powered by AI Computer Vision</p>
+        </footer>
     </div>
-    <div id="suggestion-text" style="font-size: 20px; color: green;">
-        <!-- Emotion suggestion will appear here -->
-    </div>
-    
-    
-    
-    <script src="{{ url_for('static', filename='js/webcam.js') }}"></script>
+    <script src="{{ url_for('static', filename='mood.js') }}"></script>
 </body>
 </html>
